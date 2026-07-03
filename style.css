@@ -1,0 +1,40 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#map {
+  height: calc(100% - 120px);
+}
+
+#panel {
+  height: 120px;
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#info {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#controls {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  background: #c00000;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+}
