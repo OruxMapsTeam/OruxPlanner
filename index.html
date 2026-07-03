@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>OruxMaps – Planificador Web</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="brouter-web.js"></script>
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<div id="panel">
+  <div id="info">
+    <span id="dist">Distancia: –</span>
+    <span id="time">Tiempo: –</span>
+  </div>
+
+  <div id="controls">
+    <button id="calc">Calcular ruta</button>
+    <button id="export">Exportar GPX</button>
+  </div>
+</div>
+
+<script src="map.js"></script>
+</body>
+</html>
