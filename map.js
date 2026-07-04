@@ -1,7 +1,10 @@
-// Inicializar mapa
-const map = L.map('map').setView([40.4168, -3.7038], 13);
+// Inicializar mapa con soporte táctil en móviles
+const map = L.map('map', {
+  tap: true,          // habilita eventos táctiles tipo "click"
+  tapTolerance: 15    // mejora precisión en iOS
+}).setView([40.4168, -3.7038], 13);
 
-// Capa base (puedes cambiarla por cualquier TMS/XYZ)
+// Capa base
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19
 }).addTo(map);
@@ -16,12 +19,17 @@ const brouter = new BRouterWeb({
   segmentsUrl: './segments/'
 });
 
-// Selección de puntos tocando el mapa
-map.on('click', (e) => {
+// Selección de puntos tocando el mapa (funciona en iOS y Android)
+map.on('pointerup', (e) => {
+  if (!e.latlng) return;   // seguridad para móviles
+
+  // Guardar waypoint
   waypoints.push([e.latlng.lng, e.latlng.lat]);
 
+  // Crear marcador
   L.marker(e.latlng).addTo(map);
 
+  // Activar botón calcular cuando haya 2 puntos
   if (waypoints.length === 2) {
     document.getElementById('calc').disabled = false;
   }
