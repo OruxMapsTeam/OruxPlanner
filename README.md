@@ -102,4 +102,4 @@ Las contribuciones, sugerencias y mejoras son bienvenidas.
 Para dudas, sugerencias o colaboración técnica, abre un *issue* en el
 repositorio o contacta directamente.
 
-
+https://oruxmapsteam.github.io/OruxPlanner/
