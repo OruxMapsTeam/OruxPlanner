@@ -1,7 +1,7 @@
 // Inicializar mapa con soporte táctil en móviles
 const map = L.map('map', {
-  tap: true,          // habilita eventos táctiles tipo "click"
-  tapTolerance: 15    // mejora precisión en iOS
+  tap: true,
+  tapTolerance: 15
 }).setView([40.4168, -3.7038], 13);
 
 // Capa base
@@ -21,15 +21,11 @@ const brouter = new BRouterWeb({
 
 // Selección de puntos tocando el mapa (funciona en iOS y Android)
 map.on('pointerup', (e) => {
-  if (!e.latlng) return;   // seguridad para móviles
+  if (!e.latlng) return;
 
-  // Guardar waypoint
   waypoints.push([e.latlng.lng, e.latlng.lat]);
-
-  // Crear marcador
   L.marker(e.latlng).addTo(map);
 
-  // Activar botón calcular cuando haya 2 puntos
   if (waypoints.length === 2) {
     document.getElementById('calc').disabled = false;
   }
@@ -47,7 +43,6 @@ document.getElementById('calc').onclick = async () => {
     style: { color: '#ff0000', weight: 4 }
   }).addTo(map);
 
-  // Mostrar distancia y tiempo
   document.getElementById('dist').innerText =
     `Distancia: ${(result.totalDistance / 1000).toFixed(2)} km`;
 
